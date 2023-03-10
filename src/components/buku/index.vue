@@ -1,6 +1,7 @@
 <template>
   <div>
-    <navbar-component></navbar-component>
+    <Navbar/>
+    <Sidebar/>
     <div class="content-wrapper">
       <div class="content-header">
         <div class="container-fluid">
@@ -71,11 +72,12 @@
 
 <script>
 import axios from 'axios';
-
+import Sidebar from '../template/Sidebar.vue';
+import Navbar from '../template/Navbar.vue';
 
 export default {
   name: "IndexBuku",
-    Sidebarta() {
+    data() {
     return {
       buku: {}
     };
@@ -84,6 +86,10 @@ export default {
     axios
       .get("http://127.0.0.1:8000/api/data-buku")
       .then((response) => (this.buku = response.data));
+  },
+  components:{
+    Sidebar,
+    Navbar
   }
 };
 </script>

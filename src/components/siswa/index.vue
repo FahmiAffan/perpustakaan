@@ -19,7 +19,7 @@
             <div class="col-md-8">
               <div class="card card-primary card-outline">
                 <div class="card-body">
-                  <router-link class="btn btn-info mb-2" to="">
+                  <router-link class="btn btn-info mb-2" to="/siswa/tambah">
                     <i class="fas fa-plus"></i> Tambah
                   </router-link>
                   <table class="table table-bordered">

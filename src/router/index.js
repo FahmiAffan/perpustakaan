@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import index from '../views/index.vue'
 import Siswa from '../components/siswa/index.vue'
 import Buku from '../components/buku/index.vue'
+import TambahSiswa from '../components/siswa/tambah.vue';
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,6 +21,11 @@ const routes = [
         path: '/buku',
         name: 'Buku',
         component: Buku
+    }, 
+    {
+        path: '/siswa/tambah',
+        name: 'TambahSiswa',
+        component: TambahSiswa
     },
 ]
 
