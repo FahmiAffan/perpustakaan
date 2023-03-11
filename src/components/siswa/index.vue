@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Navbar/>
-    <Sidebar/>
+    <Navbar />
+    <Sidebar />
     <div class="content-wrapper">
       <div class="content-header">
         <div class="container-fluid">
@@ -74,10 +74,9 @@
 </template>
 
 <script>
-
-import axios from 'axios';
-import Sidebar from '../template/Sidebar.vue';
-import Navbar from '../template/Navbar.vue';
+import axios from "axios";
+import Sidebar from "../template/Sidebar.vue";
+import Navbar from "../template/Navbar.vue";
 
 export default {
   name: "indexSiswa",
@@ -86,21 +85,33 @@ export default {
       siswa: {},
     };
   },
-  mounted() {
-    axios
-      .get("http://127.0.0.1:8000/api/data-siswa")
-      .then((response) => (this.siswa = response.data));
+  // mounted() {
+  //   axios
+  //     .get("http://127.0.0.1:8000/api/data-siswa")
+  //     .then((response) => (this.siswa = response.data));
+  // },
+  created() {
+    axios.get("http://localhost:8000/api/data-siswa").then((res) => {
+      this.siswa = res.data;
+    });
   },
-  components:{
+  methods: {
+    hapus(id) {
+      axios.delete(`http://localhost:8000/api/data-siswa/${id}`).then(() => {
+        let i = this.siswa.map((item) => item.id).indexOf(id);
+        this.siswa.splice(i, 1);
+      });
+    },
+  },
+  components: {
     Sidebar,
-    Navbar
+    Navbar,
   },
   //   created() {
   //     this.axios.get("http://localhost:8000/api/data-siswa").then((res) => {
   //       this.siswa = res.data;
   //     });
   //   },
-  methods: {},
 };
 </script>
 
